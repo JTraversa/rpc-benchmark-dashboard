@@ -16,7 +16,6 @@ const PROVIDERS = {
     { name: 'Tenderly', url: 'https://gateway.tenderly.co/public/mainnet', knownMaxRange: 25000 },
     { name: 'Lava', url: 'https://eth1.lava.build', knownMaxRange: 1000000 },
     { name: 'Merkle', url: 'https://eth.merkle.io', knownMaxRange: 1000 },
-    { name: '0xRPC', url: 'https://0xrpc.io/eth', knownMaxRange: 625000 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/eth/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: 50000 },
     { name: 'Alchemy', url: 'https://eth-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
@@ -117,10 +116,8 @@ const PROVIDERS = {
     { name: 'Alchemy', url: 'https://scroll-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
   ],
   zksync: [
-    { name: 'PublicNode', url: 'https://zksync-era-rpc.publicnode.com', knownMaxRange: null },
     { name: 'dRPC', url: 'https://zksync.drpc.org', knownMaxRange: 10000 },
     { name: 'BlockPI', url: 'https://zksync-era.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
-    { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/zksync-era/mainnet/public', knownMaxRange: null },
     { name: 'Official', url: 'https://mainnet.era.zksync.io', knownMaxRange: 10000000 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/zksync_era/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://zksync-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: null },
