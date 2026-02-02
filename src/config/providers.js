@@ -143,6 +143,26 @@ const PROVIDERS = {
     { name: 'Official', url: 'https://andromeda.metis.io/?owner=1088', knownMaxRange: 10000000 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/metis/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
   ],
+  fantom: [
+    { name: 'Official', url: 'https://rpcapi.fantom.network', knownMaxRange: 50000 },
+  ],
+  mantle: [
+    { name: 'PublicNode', url: 'https://mantle-rpc.publicnode.com', knownMaxRange: 50000 },
+    { name: 'dRPC', url: 'https://mantle.drpc.org', knownMaxRange: 10000 },
+    { name: 'Official', url: 'https://rpc.mantle.xyz', knownMaxRange: 50000 },
+  ],
+  blast: [
+    { name: 'dRPC', url: 'https://blast.drpc.org', knownMaxRange: 10000 },
+    { name: 'Official', url: 'https://rpc.blast.io', knownMaxRange: 10000 },
+  ],
+  zkevm: [
+    { name: 'dRPC', url: 'https://polygon-zkevm.drpc.org', knownMaxRange: 10000 },
+    { name: 'Official', url: 'https://zkevm-rpc.com', knownMaxRange: 10000 },
+  ],
+  celo: [
+    { name: 'PublicNode', url: 'https://celo-rpc.publicnode.com', knownMaxRange: 10000 },
+    { name: 'Official', url: 'https://forno.celo.org', knownMaxRange: 100 },
+  ],
 };
 
 // All unique key names used by providers that require API keys

@@ -86,4 +86,39 @@ export const CHAINS = [
     testContract: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000', // METIS
     avgBlockTime: 4,
   },
+  {
+    id: 'fantom',
+    name: 'Fantom',
+    chainId: 250,
+    testContract: '0x049d68029688eAbF473097a2fC38ef61633A3C7A', // fUSDT
+    avgBlockTime: 1,
+  },
+  {
+    id: 'mantle',
+    name: 'Mantle',
+    chainId: 5000,
+    testContract: '0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE', // USDT
+    avgBlockTime: 2,
+  },
+  {
+    id: 'blast',
+    name: 'Blast',
+    chainId: 81457,
+    testContract: '0x4300000000000000000000000000000000000004', // WETH
+    avgBlockTime: 2,
+  },
+  {
+    id: 'zkevm',
+    name: 'Polygon zkEVM',
+    chainId: 1101,
+    testContract: '0x1E4a5963aBFD975d8c9021ce480b42188849D41d', // USDT
+    avgBlockTime: 5,
+  },
+  {
+    id: 'celo',
+    name: 'Celo',
+    chainId: 42220,
+    testContract: '0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e', // USDT
+    avgBlockTime: 5,
+  },
 ];
