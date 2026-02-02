@@ -8,12 +8,10 @@
 const PROVIDERS = {
   ethereum: [
     { name: 'PublicNode', url: 'https://ethereum-rpc.publicnode.com', knownMaxRange: 2000 },
-    { name: '1RPC', url: 'https://1rpc.io/eth', knownMaxRange: 10000 },
     { name: 'dRPC', url: 'https://eth.drpc.org', knownMaxRange: 10000 },
     { name: 'BlockPI', url: 'https://ethereum.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/eth/mainnet/public', knownMaxRange: 50000 },
     { name: 'Nodies', url: 'https://eth-pokt.nodies.app', knownMaxRange: 499 },
-    { name: 'LlamaRPC', url: 'https://eth.llamarpc.com', knownMaxRange: 1000 },
     { name: 'MeowRPC', url: 'https://eth.meowrpc.com', knownMaxRange: 50000 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/eth/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: 50000 },
@@ -21,7 +19,6 @@ const PROVIDERS = {
   ],
   arbitrum: [
     { name: 'PublicNode', url: 'https://arbitrum-one-rpc.publicnode.com', knownMaxRange: 49999 },
-    { name: '1RPC', url: 'https://1rpc.io/arb', knownMaxRange: 10000 },
     { name: 'dRPC', url: 'https://arbitrum.drpc.org', knownMaxRange: 10000 },
     { name: 'BlockPI', url: 'https://arbitrum.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'Nodies', url: 'https://arb-pokt.nodies.app', knownMaxRange: 499 },
@@ -32,7 +29,6 @@ const PROVIDERS = {
   ],
   polygon: [
     { name: 'PublicNode', url: 'https://polygon-bor-rpc.publicnode.com', knownMaxRange: 50000 },
-    { name: '1RPC', url: 'https://1rpc.io/matic', knownMaxRange: 3000 },
     { name: 'dRPC', url: 'https://polygon.drpc.org', knownMaxRange: 10000 },
     { name: 'BlockPI', url: 'https://polygon.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/matic/mainnet/public', knownMaxRange: 50000 },
@@ -44,7 +40,6 @@ const PROVIDERS = {
   ],
   optimism: [
     { name: 'PublicNode', url: 'https://optimism-rpc.publicnode.com', knownMaxRange: 5000 },
-    { name: '1RPC', url: 'https://1rpc.io/op', knownMaxRange: 10000 },
     { name: 'dRPC', url: 'https://optimism.drpc.org', knownMaxRange: 10000 },
     { name: 'BlockPI', url: 'https://optimism.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/op/mainnet/public', knownMaxRange: 50000 },
@@ -56,7 +51,6 @@ const PROVIDERS = {
   ],
   avalanche: [
     { name: 'PublicNode', url: 'https://avalanche-c-chain-rpc.publicnode.com', knownMaxRange: 2048 },
-    { name: '1RPC', url: 'https://1rpc.io/avax/c', knownMaxRange: 2048 },
     { name: 'dRPC', url: 'https://avalanche.drpc.org', knownMaxRange: 2048 },
     { name: 'BlockPI', url: 'https://avalanche.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/avax/mainnet/public', knownMaxRange: 2048 },
@@ -69,11 +63,9 @@ const PROVIDERS = {
   ],
   base: [
     { name: 'PublicNode', url: 'https://base-rpc.publicnode.com', knownMaxRange: 5000 },
-    { name: '1RPC', url: 'https://1rpc.io/base', knownMaxRange: 10000 },
     { name: 'dRPC', url: 'https://base.drpc.org', knownMaxRange: 10000 },
     { name: 'BlockPI', url: 'https://base.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/base/mainnet/public', knownMaxRange: 50000 },
-    { name: 'LlamaRPC', url: 'https://base.llamarpc.com', knownMaxRange: 1000 },
     { name: 'MeowRPC', url: 'https://base.meowrpc.com', knownMaxRange: 50000 },
     { name: 'Official', url: 'https://mainnet.base.org', knownMaxRange: 5000 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/base/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
@@ -82,7 +74,6 @@ const PROVIDERS = {
   ],
   bnb: [
     { name: 'PublicNode', url: 'https://bsc-rpc.publicnode.com', knownMaxRange: 5000 },
-    { name: '1RPC', url: 'https://1rpc.io/bnb', knownMaxRange: 10000 },
     { name: 'dRPC', url: 'https://bsc.drpc.org', knownMaxRange: 10000 },
     { name: 'BlockPI', url: 'https://bsc.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/bsc/mainnet/public', knownMaxRange: 5000 },
@@ -95,7 +86,6 @@ const PROVIDERS = {
   ],
   gnosis: [
     { name: 'PublicNode', url: 'https://gnosis-rpc.publicnode.com', knownMaxRange: null },
-    { name: '1RPC', url: 'https://1rpc.io/gnosis', knownMaxRange: 10000 },
     { name: 'dRPC', url: 'https://gnosis.drpc.org', knownMaxRange: 10000 },
     { name: 'BlockPI', url: 'https://gnosis.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/gnosis/mainnet/public', knownMaxRange: null },
@@ -105,7 +95,6 @@ const PROVIDERS = {
   ],
   scroll: [
     { name: 'PublicNode', url: 'https://scroll-rpc.publicnode.com', knownMaxRange: null },
-    { name: '1RPC', url: 'https://1rpc.io/scroll', knownMaxRange: 10000 },
     { name: 'dRPC', url: 'https://scroll.drpc.org', knownMaxRange: 10000 },
     { name: 'BlockPI', url: 'https://scroll.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'Official', url: 'https://rpc.scroll.io', knownMaxRange: null },
@@ -115,7 +104,6 @@ const PROVIDERS = {
   ],
   zksync: [
     { name: 'PublicNode', url: 'https://zksync-era-rpc.publicnode.com', knownMaxRange: null },
-    { name: '1RPC', url: 'https://1rpc.io/zksync2-era', knownMaxRange: 10000 },
     { name: 'dRPC', url: 'https://zksync.drpc.org', knownMaxRange: 10000 },
     { name: 'BlockPI', url: 'https://zksync-era.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/zksync-era/mainnet/public', knownMaxRange: null },
@@ -126,7 +114,6 @@ const PROVIDERS = {
   ],
   linea: [
     { name: 'PublicNode', url: 'https://linea-rpc.publicnode.com', knownMaxRange: null },
-    { name: '1RPC', url: 'https://1rpc.io/linea', knownMaxRange: 10000 },
     { name: 'dRPC', url: 'https://linea.drpc.org', knownMaxRange: 10000 },
     { name: 'BlockPI', url: 'https://linea.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'Official', url: 'https://rpc.linea.build', knownMaxRange: null },

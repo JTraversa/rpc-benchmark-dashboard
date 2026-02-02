@@ -133,10 +133,6 @@ export async function benchmarkProvider(url, chain, onProgress) {
   }
   result.latencyMs = latencyResult.elapsed;
 
-  // Step 3: Max range
-  if (onProgress) onProgress('Finding max range...');
-  result.maxRange = await findMaxRange(url, chain, latestBlockHex);
-
   result.status = 'ok';
   return result;
 }
