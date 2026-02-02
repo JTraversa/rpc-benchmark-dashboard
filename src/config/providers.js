@@ -9,10 +9,8 @@ const PROVIDERS = {
   ethereum: [
     { name: 'PublicNode', url: 'https://ethereum-rpc.publicnode.com', knownMaxRange: 2000 },
     { name: 'dRPC', url: 'https://eth.drpc.org', knownMaxRange: 10000 },
-    { name: 'BlockPI', url: 'https://ethereum.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/eth/mainnet/public', knownMaxRange: 50000 },
     { name: 'Nodies', url: 'https://eth-pokt.nodies.app', knownMaxRange: 499 },
-    { name: 'MeowRPC', url: 'https://eth.meowrpc.com', knownMaxRange: 50000 },
     { name: 'Tenderly', url: 'https://gateway.tenderly.co/public/mainnet', knownMaxRange: 25000 },
     { name: 'Lava', url: 'https://eth1.lava.build', knownMaxRange: 1000000 },
     { name: 'Merkle', url: 'https://eth.merkle.io', knownMaxRange: 1000 },
@@ -23,7 +21,6 @@ const PROVIDERS = {
   arbitrum: [
     { name: 'PublicNode', url: 'https://arbitrum-one-rpc.publicnode.com', knownMaxRange: 49999 },
     { name: 'dRPC', url: 'https://arbitrum.drpc.org', knownMaxRange: 10000 },
-    { name: 'BlockPI', url: 'https://arbitrum.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'Nodies', url: 'https://arb-pokt.nodies.app', knownMaxRange: 499 },
     { name: 'Official', url: 'https://arb1.arbitrum.io/rpc', knownMaxRange: 49999 },
     { name: 'Tenderly', url: 'https://gateway.tenderly.co/public/arbitrum', knownMaxRange: null },
@@ -35,7 +32,6 @@ const PROVIDERS = {
   polygon: [
     { name: 'PublicNode', url: 'https://polygon-bor-rpc.publicnode.com', knownMaxRange: 50000 },
     { name: 'dRPC', url: 'https://polygon.drpc.org', knownMaxRange: 10000 },
-    { name: 'BlockPI', url: 'https://polygon.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/matic/mainnet/public', knownMaxRange: 50000 },
     { name: 'Nodies', url: 'https://polygon-pokt.nodies.app', knownMaxRange: 499 },
     { name: 'Official', url: 'https://polygon-rpc.com', knownMaxRange: 3500 },
@@ -47,7 +43,6 @@ const PROVIDERS = {
   optimism: [
     { name: 'PublicNode', url: 'https://optimism-rpc.publicnode.com', knownMaxRange: 5000 },
     { name: 'dRPC', url: 'https://optimism.drpc.org', knownMaxRange: 10000 },
-    { name: 'BlockPI', url: 'https://optimism.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/op/mainnet/public', knownMaxRange: 50000 },
     { name: 'Nodies', url: 'https://op-pokt.nodies.app', knownMaxRange: 499 },
     { name: 'Official', url: 'https://mainnet.optimism.io', knownMaxRange: 5000 },
@@ -60,10 +55,8 @@ const PROVIDERS = {
   avalanche: [
     { name: 'PublicNode', url: 'https://avalanche-c-chain-rpc.publicnode.com', knownMaxRange: 2048 },
     { name: 'dRPC', url: 'https://avalanche.drpc.org', knownMaxRange: 2048 },
-    { name: 'BlockPI', url: 'https://avalanche.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/avax/mainnet/public', knownMaxRange: 2048 },
     { name: 'Nodies', url: 'https://avax-pokt.nodies.app/ext/bc/C/rpc', knownMaxRange: 499 },
-    { name: 'MeowRPC', url: 'https://avax.meowrpc.com', knownMaxRange: 2048 },
     { name: 'Official', url: 'https://api.avax.network/ext/bc/C/rpc', knownMaxRange: 2048 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/avalanche/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://avalanche-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: 50000 },
@@ -72,9 +65,7 @@ const PROVIDERS = {
   base: [
     { name: 'PublicNode', url: 'https://base-rpc.publicnode.com', knownMaxRange: 5000 },
     { name: 'dRPC', url: 'https://base.drpc.org', knownMaxRange: 10000 },
-    { name: 'BlockPI', url: 'https://base.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/base/mainnet/public', knownMaxRange: 50000 },
-    { name: 'MeowRPC', url: 'https://base.meowrpc.com', knownMaxRange: 50000 },
     { name: 'Official', url: 'https://mainnet.base.org', knownMaxRange: 5000 },
     { name: 'Tenderly', url: 'https://gateway.tenderly.co/public/base', knownMaxRange: null },
     { name: 'Lava', url: 'https://base.lava.build', knownMaxRange: null },
@@ -86,10 +77,8 @@ const PROVIDERS = {
   bnb: [
     { name: 'PublicNode', url: 'https://bsc-rpc.publicnode.com', knownMaxRange: 5000 },
     { name: 'dRPC', url: 'https://bsc.drpc.org', knownMaxRange: 10000 },
-    { name: 'BlockPI', url: 'https://bsc.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/bsc/mainnet/public', knownMaxRange: 5000 },
     { name: 'Nodies', url: 'https://bsc-pokt.nodies.app', knownMaxRange: 499 },
-    { name: 'MeowRPC', url: 'https://bsc.meowrpc.com', knownMaxRange: 50000 },
     { name: 'Official', url: 'https://bsc-dataseed.binance.org', knownMaxRange: 5000 },
     { name: 'Lava', url: 'https://bsc.lava.build', knownMaxRange: null },
     { name: 'Merkle', url: 'https://bsc.merkle.io', knownMaxRange: null },
@@ -100,7 +89,6 @@ const PROVIDERS = {
   gnosis: [
     { name: 'PublicNode', url: 'https://gnosis-rpc.publicnode.com', knownMaxRange: 50000 },
     { name: 'dRPC', url: 'https://gnosis.drpc.org', knownMaxRange: 10000 },
-    { name: 'BlockPI', url: 'https://gnosis.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/gnosis/mainnet/public', knownMaxRange: 50000 },
     { name: 'Nodies', url: 'https://gnosis-pokt.nodies.app', knownMaxRange: 499 },
     { name: 'Official', url: 'https://rpc.gnosischain.com', knownMaxRange: 600000 },
@@ -109,7 +97,6 @@ const PROVIDERS = {
   scroll: [
     { name: 'PublicNode', url: 'https://scroll-rpc.publicnode.com', knownMaxRange: 50000 },
     { name: 'dRPC', url: 'https://scroll.drpc.org', knownMaxRange: 10000 },
-    { name: 'BlockPI', url: 'https://scroll.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'Official', url: 'https://rpc.scroll.io', knownMaxRange: 10000 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/scroll/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://scroll-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: null },
@@ -117,7 +104,6 @@ const PROVIDERS = {
   ],
   zksync: [
     { name: 'dRPC', url: 'https://zksync.drpc.org', knownMaxRange: 10000 },
-    { name: 'BlockPI', url: 'https://zksync-era.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'Official', url: 'https://mainnet.era.zksync.io', knownMaxRange: 10000000 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/zksync_era/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://zksync-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: null },
@@ -126,7 +112,6 @@ const PROVIDERS = {
   linea: [
     { name: 'PublicNode', url: 'https://linea-rpc.publicnode.com', knownMaxRange: 50000 },
     { name: 'dRPC', url: 'https://linea.drpc.org', knownMaxRange: 10000 },
-    { name: 'BlockPI', url: 'https://linea.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'Official', url: 'https://rpc.linea.build', knownMaxRange: 10000000 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/linea/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://linea-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: null },
@@ -135,7 +120,6 @@ const PROVIDERS = {
   metis: [
     { name: 'PublicNode', url: 'https://metis-rpc.publicnode.com', knownMaxRange: 50000 },
     { name: 'dRPC', url: 'https://metis.drpc.org', knownMaxRange: 10000 },
-    { name: 'BlockPI', url: 'https://metis.blockpi.network/v1/rpc/public', knownMaxRange: 1024 },
     { name: 'Nodies', url: 'https://metis-pokt.nodies.app', knownMaxRange: 499 },
     { name: 'Official', url: 'https://andromeda.metis.io/?owner=1088', knownMaxRange: 10000000 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/metis/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
