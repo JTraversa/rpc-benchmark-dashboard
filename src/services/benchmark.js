@@ -76,7 +76,7 @@ export async function findMaxRange(url, chain, latestBlockHex) {
 
 function classifyError(errorMsg) {
   const lower = (errorMsg || '').toLowerCase();
-  if (lower.includes('unauthorized') || lower.includes('api key') || lower.includes('authenticate')) {
+  if (lower.includes('unauthorized') || lower.includes('api key') || lower.includes('authenticate') || lower.includes('invalid project')) {
     return 'auth_required';
   }
   if (lower.includes('pruned') || lower.includes('history')) {
@@ -85,10 +85,21 @@ function classifyError(errorMsg) {
   if (lower.includes('timeout') || lower.includes('timed out')) {
     return 'timeout';
   }
-  if (lower.includes('cors') || lower.includes('failed to fetch') || lower.includes('networkerror')) {
+  if (lower.includes('cors') || lower.includes('failed to fetch') || lower.includes('networkerror') || lower.includes('load failed')) {
     return 'cors_blocked';
   }
   return 'error';
+}
+
+/**
+ * Resolve the actual URL for a provider, substituting API keys if needed.
+ * Returns null if the provider requires a key that isn't configured.
+ */
+export function resolveUrl(provider, apiKeys) {
+  if (!provider.requiresKey) return provider.url;
+  const key = apiKeys[provider.keyName];
+  if (!key) return null;
+  return provider.url.replace('{API_KEY}', key);
 }
 
 export async function benchmarkProvider(url, chain, onProgress) {

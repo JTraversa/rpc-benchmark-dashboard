@@ -44,6 +44,7 @@ export function statusLabel(status) {
     case 'cors_blocked': return 'CORS Blocked';
     case 'error': return 'Error';
     case 'testing': return 'Testing...';
+    case 'key_missing': return 'Key Required';
     default: return status || '—';
   }
 }
@@ -51,5 +52,6 @@ export function statusLabel(status) {
 export function statusColor(status) {
   if (status === 'ok') return 'good';
   if (status === 'testing') return 'medium';
+  if (status === 'key_missing') return 'muted';
   return 'bad';
 }

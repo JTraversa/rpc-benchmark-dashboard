@@ -3,7 +3,6 @@ import PROVIDERS from '../config/providers';
 import {
   formatMs,
   formatRange,
-  formatTime,
   latencyColor,
   rangeColor,
   statusLabel,
@@ -15,7 +14,6 @@ const COLUMNS = [
   { key: 'status', label: 'Status', sortable: true },
   { key: 'latencyMs', label: 'Latency', sortable: true },
   { key: 'maxRange', label: 'Max Log Range', sortable: true },
-  { key: 'testedAt', label: 'Last Tested', sortable: true },
   { key: 'url', label: 'URL', sortable: false },
 ];
 
@@ -23,12 +21,18 @@ function getSortValue(row, key) {
   if (key === 'name') return row.name;
   if (key === 'url') return row.url;
   const r = row.result;
-  if (!r) return key === 'latencyMs' || key === 'maxRange' ? Infinity : '';
+  if (!r) {
+    if (key === 'maxRange') return row.knownMaxRange ?? -1;
+    return key === 'latencyMs' ? Infinity : '';
+  }
   if (key === 'status') return r.status || '';
   if (key === 'latencyMs') return r.latencyMs ?? Infinity;
-  if (key === 'maxRange') return r.maxRange ?? -1;
-  if (key === 'testedAt') return r.testedAt ?? 0;
+  if (key === 'maxRange') return r.maxRange ?? row.knownMaxRange ?? -1;
   return '';
+}
+
+function maskUrl(url) {
+  return url.replace(/\{API_KEY\}/, '***');
 }
 
 export default function BenchmarkTable({ chainId, results }) {
@@ -41,6 +45,8 @@ export default function BenchmarkTable({ chainId, results }) {
   const rows = providers.map((p) => ({
     name: p.name,
     url: p.url,
+    requiresKey: !!p.requiresKey,
+    knownMaxRange: p.knownMaxRange,
     result: chainResults[p.name] || null,
   }));
 
@@ -86,23 +92,34 @@ export default function BenchmarkTable({ chainId, results }) {
           <tbody>
             {sorted.map((row) => {
               const r = row.result;
+              const isKeyMissing = r?.status === 'key_missing';
+              const displayRange = r?.maxRange ?? row.knownMaxRange;
+              const rangeIsTested = r?.maxRange != null;
+
               return (
-                <tr key={row.name}>
-                  <td className="provider-name">{row.name}</td>
+                <tr key={row.name} className={isKeyMissing ? 'row-dimmed' : ''}>
+                  <td className="provider-name">
+                    {row.name}
+                    {row.requiresKey && <span className="key-badge">KEY</span>}
+                  </td>
                   <td>
                     <span className={`badge badge-${r ? statusColor(r.status) : ''}`}>
-                      {r ? statusLabel(r.status) : '—'}
+                      {r ? statusLabel(r.status) : '\u2014'}
                     </span>
                   </td>
                   <td className={`number ${r ? latencyColor(r.latencyMs) : ''}`}>
-                    {r ? formatMs(r.latencyMs) : '—'}
+                    {r && r.latencyMs != null ? formatMs(r.latencyMs) : '\u2014'}
                   </td>
-                  <td className={`number ${r ? rangeColor(r.maxRange) : ''}`}>
-                    {r ? formatRange(r.maxRange) : '—'}
+                  <td className={`number ${rangeIsTested ? rangeColor(displayRange) : ''}`}>
+                    {displayRange != null ? (
+                      <>
+                        {formatRange(displayRange)}
+                        {!rangeIsTested && <span className="known-tag">known</span>}
+                      </>
+                    ) : '\u2014'}
                   </td>
-                  <td className="timestamp">{r ? formatTime(r.testedAt) : '—'}</td>
                   <td className="url-cell">
-                    <span className="url-text">{row.url}</span>
+                    <span className="url-text">{maskUrl(row.url)}</span>
                   </td>
                 </tr>
               );
