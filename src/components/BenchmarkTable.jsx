@@ -96,14 +96,21 @@ export default function BenchmarkTable({ chainId, results }) {
               const displayRange = r?.maxRange ?? row.knownMaxRange;
               const rangeIsTested = r?.maxRange != null;
 
+              const isTesting = r?.status === 'testing';
+              const hasError = r?.error && r.status !== 'ok' && r.status !== 'testing' && r.status !== 'key_missing';
+
               return (
-                <tr key={row.name} className={isKeyMissing ? 'row-dimmed' : ''}>
+                <tr key={row.name} className={`${isKeyMissing ? 'row-dimmed' : ''} ${isTesting ? 'row-testing' : ''}`}>
                   <td className="provider-name">
+                    {isTesting && <span className="spinner" />}
                     {row.name}
                     {row.requiresKey && <span className="key-badge">KEY</span>}
                   </td>
                   <td>
-                    <span className={`badge badge-${r ? statusColor(r.status) : ''}`}>
+                    <span
+                      className={`badge badge-${r ? statusColor(r.status) : ''}`}
+                      title={hasError ? r.error : undefined}
+                    >
                       {r ? statusLabel(r.status) : '\u2014'}
                     </span>
                   </td>

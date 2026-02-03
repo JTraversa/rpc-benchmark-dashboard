@@ -42,6 +42,7 @@ export function statusLabel(status) {
     case 'pruned': return 'Pruned';
     case 'timeout': return 'Timeout';
     case 'cors_blocked': return 'CORS Blocked';
+    case 'rate_limited': return 'Rate Limited';
     case 'error': return 'Error';
     case 'testing': return 'Testing...';
     case 'key_missing': return 'Key Required';
@@ -53,5 +54,7 @@ export function statusColor(status) {
   if (status === 'ok') return 'good';
   if (status === 'testing') return 'medium';
   if (status === 'key_missing') return 'muted';
+  if (status === 'rate_limited') return 'warn';
+  if (status === 'cors_blocked') return 'muted';
   return 'bad';
 }

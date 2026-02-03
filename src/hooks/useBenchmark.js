@@ -78,6 +78,16 @@ export function useBenchmark() {
 
       setProgress({ current: completed, total: testable.length, label: `${chain.name} - ${provider.name}` });
 
+      // Mark as testing so the table shows a spinner immediately
+      chainResults[provider.name] = {
+        status: 'testing',
+        latencyMs: null,
+        maxRange: null,
+        error: null,
+        testedAt: null,
+      };
+      setResults((prev) => ({ ...prev, [chainId]: { ...chainResults } }));
+
       const result = await benchmarkProvider(url, chain, (step) => {
         setProgress((p) => ({ ...p, label: `${chain.name} - ${provider.name}: ${step}` }));
       });
@@ -141,6 +151,17 @@ export function useBenchmark() {
           total: totalTestable,
           label: `${chain.name} - ${provider.name}`,
         });
+
+        // Mark as testing so the table shows a spinner immediately
+        chainResults[provider.name] = {
+          status: 'testing',
+          latencyMs: null,
+          maxRange: null,
+          error: null,
+          testedAt: null,
+        };
+        allResults[chainId] = { ...chainResults };
+        setResults({ ...allResults });
 
         const result = await benchmarkProvider(url, chain);
         chainResults[provider.name] = result;

@@ -15,8 +15,21 @@ async function rpcCall(url, method, params, timeout = 15000) {
       signal: controller.signal,
     });
     const elapsed = Math.round(performance.now() - start);
-    const json = await res.json();
     clearTimeout(timer);
+
+    if (res.status === 429) {
+      return { ok: false, elapsed, error: 'Rate limited (429)' };
+    }
+    if (res.status === 403) {
+      return { ok: false, elapsed, error: 'Forbidden (403)' };
+    }
+
+    let json;
+    try {
+      json = await res.json();
+    } catch {
+      return { ok: false, elapsed, error: `HTTP ${res.status}: non-JSON response` };
+    }
 
     if (json.error) {
       return { ok: false, elapsed, error: json.error.message || JSON.stringify(json.error) };
@@ -25,7 +38,11 @@ async function rpcCall(url, method, params, timeout = 15000) {
   } catch (err) {
     clearTimeout(timer);
     const elapsed = Math.round(performance.now() - start);
-    return { ok: false, elapsed, error: err.name === 'AbortError' ? 'Timeout' : err.message };
+    if (err.name === 'AbortError') {
+      return { ok: false, elapsed, error: 'Timeout' };
+    }
+    // In browsers, CORS failures and network errors both throw TypeError
+    return { ok: false, elapsed, error: err.message };
   }
 }
 
@@ -76,7 +93,10 @@ export async function findMaxRange(url, chain, latestBlockHex) {
 
 function classifyError(errorMsg) {
   const lower = (errorMsg || '').toLowerCase();
-  if (lower.includes('unauthorized') || lower.includes('api key') || lower.includes('authenticate') || lower.includes('invalid project')) {
+  if (lower.includes('rate limit') || lower.includes('429') || lower.includes('too many request')) {
+    return 'rate_limited';
+  }
+  if (lower.includes('unauthorized') || lower.includes('api key') || lower.includes('authenticate') || lower.includes('invalid project') || lower.includes('forbidden') || lower.includes('403')) {
     return 'auth_required';
   }
   if (lower.includes('pruned') || lower.includes('history')) {
