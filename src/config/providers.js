@@ -12,8 +12,11 @@ const PROVIDERS = {
     { name: 'OMNIA', url: 'https://endpoints.omniatech.io/v1/eth/mainnet/public', knownMaxRange: 50000 },
     { name: 'Nodies', url: 'https://eth-pokt.nodies.app', knownMaxRange: 499 },
     { name: 'Tenderly', url: 'https://gateway.tenderly.co/public/mainnet', knownMaxRange: 25000 },
-    { name: 'Lava', url: 'https://eth1.lava.build', knownMaxRange: 1000000 },
+    { name: 'Lava', url: 'https://eth1.lava.build', knownMaxRange: 1000 },
     { name: 'Merkle', url: 'https://eth.merkle.io', knownMaxRange: 1000 },
+    { name: 'OnFinality', url: 'https://eth.api.onfinality.io/public', knownMaxRange: 1000 },
+    { name: 'ZAN', url: 'https://api.zan.top/eth-mainnet', knownMaxRange: 1000 },
+    { name: 'Sentio', url: 'https://rpc.sentio.xyz/mainnet', knownMaxRange: 10000 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/eth/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: 50000 },
     { name: 'Alchemy', url: 'https://eth-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
@@ -130,7 +133,7 @@ const PROVIDERS = {
   mantle: [
     { name: 'PublicNode', url: 'https://mantle-rpc.publicnode.com', knownMaxRange: 50000 },
     { name: 'dRPC', url: 'https://mantle.drpc.org', knownMaxRange: 10000 },
-    { name: 'Official', url: 'https://rpc.mantle.xyz', knownMaxRange: 50000 },
+    { name: 'Official', url: 'https://rpc.mantle.xyz', knownMaxRange: 10000 },
   ],
   blast: [
     { name: 'dRPC', url: 'https://blast.drpc.org', knownMaxRange: 10000 },
