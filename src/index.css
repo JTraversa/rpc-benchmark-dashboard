@@ -30,6 +30,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f5f5f5;
+  --bg-hover: #ebebeb;
+  --border: rgba(0,0,0,0.12);
+  --border-light: rgba(0,0,0,0.18);
+  --text-primary: #000;
+  --text-secondary: rgba(0,0,0,0.5);
+  --text-muted: rgba(0,0,0,0.35);
+  --accent: rgb(80, 120, 190);
+  --accent-hover: rgb(105, 145, 215);
+  --green: #2e7d32;
+  --green-bg: rgba(46, 125, 50, 0.12);
+  --yellow: #ed6c02;
+  --yellow-bg: rgba(237, 108, 2, 0.12);
+  --red: #d32f2f;
+  --red-bg: rgba(211, 47, 47, 0.12);
+}
+
 *,
 *::before,
 *::after {
