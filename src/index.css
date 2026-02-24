@@ -8,8 +8,8 @@
   --text-primary: #fff;
   --text-secondary: rgba(255,255,255,0.5);
   --text-muted: rgba(255,255,255,0.35);
-  --accent: rgb(204, 0, 0);
-  --accent-hover: rgb(230, 30, 30);
+  --accent: rgb(160, 40, 40);
+  --accent-hover: rgb(185, 50, 50);
   --green: #3fb950;
   --green-bg: rgba(63, 185, 80, 0.15);
   --yellow: #d29922;
