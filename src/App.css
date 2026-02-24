@@ -358,7 +358,7 @@
 }
 
 .benchmark-table tbody tr:hover {
-  background: rgba(160, 40, 40, 0.06);
+  background: rgba(100, 120, 160, 0.06);
 }
 
 .benchmark-table tbody tr:last-child td {
@@ -452,7 +452,7 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   border-radius: 0;
-  background: rgba(160, 40, 40, 0.15);
+  background: rgba(100, 120, 160, 0.15);
   color: var(--accent);
   vertical-align: middle;
 }
@@ -484,7 +484,7 @@
 }
 
 .row-testing {
-  background: rgba(160, 40, 40, 0.06);
+  background: rgba(100, 120, 160, 0.06);
 }
 
 /* Dimmed rows for missing API keys */
