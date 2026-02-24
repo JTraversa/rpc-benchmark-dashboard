@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Header from './components/Header';
+import Socialicons from './components/Socialicons';
 import ChainSelector from './components/ChainSelector';
 import ApiKeySettings from './components/ApiKeySettings';
 import BenchmarkRunner from './components/BenchmarkRunner';
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="app">
       <Header />
+      <Socialicons />
       <main className="main">
         <ChainSelector selected={selectedChain} onSelect={setSelectedChain} />
         <ApiKeySettings apiKeys={apiKeys} onSave={handleSaveKeys} />

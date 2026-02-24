@@ -56,12 +56,14 @@
 
 .theme-toggle {
   background: var(--bg-secondary);
-  border: none;
-  color: var(--text-secondary);
+  border: unset;
+  color: var(--text-primary);
   cursor: pointer;
   padding: 5px 15px;
+  margin: 0;
   font-size: 1.25rem;
   font-family: 'Marcellus', serif;
+  font-weight: bold;
   line-height: 2;
   height: 50px;
   display: flex;
@@ -70,12 +72,12 @@
 }
 
 .theme-toggle svg {
-  width: 2em;
-  height: 2em;
+  width: 1em;
+  height: 1em;
 }
 
 .theme-toggle:hover {
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .menu-toggle {
