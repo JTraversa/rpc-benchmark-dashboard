@@ -36,6 +36,26 @@
   height: 100%;
 }
 
+/* Page Intro */
+.page-intro {
+  margin-bottom: 1.5rem;
+}
+
+.page-intro h1 {
+  font-family: 'Marcellus', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.page-intro p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
 /* Header */
 .site-header {
   position: fixed;

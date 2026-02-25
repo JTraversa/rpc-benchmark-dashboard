@@ -23,6 +23,12 @@ function App() {
       <Header />
       <Socialicons />
       <main className="main">
+        <div className="page-intro">
+          <h1>RPC Provider Benchmark</h1>
+          <p>
+            Compare RPC provider latency and maximum log query range across EVM chains. Select a chain, configure any optional API keys, and run benchmarks. All tests run client-side in your browser.
+          </p>
+        </div>
         <ChainSelector selected={selectedChain} onSelect={setSelectedChain} />
         <ApiKeySettings apiKeys={apiKeys} onSave={handleSaveKeys} />
         <BenchmarkRunner
