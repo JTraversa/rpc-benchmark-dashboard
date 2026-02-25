@@ -10,11 +10,7 @@ Compare RPC provider latency and log query range across 17 EVM chains and 100+ e
 - **100+ endpoints** - Public providers (PublicNode, dRPC, OMNIA, Nodies, Tenderly, Lava, Merkle, and more) plus authenticated providers (Infura, Alchemy, Ankr)
 - **Latency testing** - Measures response time for `eth_getLogs` queries
 - **Max log range detection** - Finds the largest block range each provider supports for `eth_getLogs` by testing progressively larger ranges
-- **Sortable results** - Sort by provider, status, latency, max range, or URL
-- **Color-coded metrics** - Green/yellow/red indicators for latency and range quality
-- **Status classification** - OK, Auth Required, Pruned, Timeout, CORS Blocked, Rate Limited, Error
 - **Persistent results** - Benchmark data saved to localStorage across sessions
-- **Dark/light theme** - Toggle with system preference detection
 
 ## How It Works
 
