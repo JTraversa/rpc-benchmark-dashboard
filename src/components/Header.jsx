@@ -11,8 +11,8 @@ const menuLinks = [
 
 const toolLinks = [
   { label: 'Tools', href: 'https://tools.traversa.dev' },
-  { label: 'Aave Liquidations', href: 'https://tools.traversa.dev/aave', indent: true },
-  { label: 'RPC Benchmark', href: '/', indent: true },
+  { label: 'Aave Liquidation Search', href: 'https://tools.traversa.dev/aave', indent: true },
+  { label: 'RPC Benchmarking', href: '/', indent: true },
 ];
 
 export default function Header() {

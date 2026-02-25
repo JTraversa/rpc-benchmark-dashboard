@@ -1,4 +1,4 @@
-# RPC Provider Benchmark
+# RPC Provider Benchmarking
 
 Compare RPC provider latency and log query range across 17 EVM chains and 100+ endpoints.
 
