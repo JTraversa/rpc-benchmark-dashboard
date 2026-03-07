@@ -121,4 +121,18 @@ export const CHAINS = [
     testContract: '0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e', // USDT
     avgBlockTime: 5,
   },
+  {
+    id: 'megaeth',
+    name: 'MegaETH',
+    chainId: 4326,
+    testContract: '0x4200000000000000000000000000000000000006', // WETH
+    avgBlockTime: 0.01,
+  },
+  {
+    id: 'monad',
+    name: 'Monad',
+    chainId: 143,
+    testContract: '0x754704Bc059F8C67012fEd69BC8A327a5aafb603', // USDC
+    avgBlockTime: 1,
+  },
 ];

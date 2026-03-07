@@ -6,8 +6,8 @@ Compare RPC provider latency and log query range across 17 EVM chains and 100+ e
 
 ## Features
 
-- **17 chains** - Ethereum, Arbitrum, Polygon, Optimism, Avalanche, Base, BNB Chain, Gnosis, Scroll, zkSync Era, Linea, Metis, Fantom, Mantle, Blast, Polygon zkEVM, and Celo
-- **100+ endpoints** - Public providers (PublicNode, dRPC, OMNIA, Nodies, Tenderly, Lava, Merkle, and more) plus authenticated providers (Infura, Alchemy, Ankr)
+- **19 chains** - Ethereum, Arbitrum, Polygon, Optimism, Avalanche, Base, BNB Chain, Gnosis, Scroll, zkSync Era, Linea, Metis, Fantom, Mantle, Blast, Polygon zkEVM, Celo, MegaETH, and Monad
+- **100+ endpoints** - Public providers (PublicNode, dRPC, OMNIA, Nodies, Tenderly, Lava, Merkle, and more) plus authenticated providers (QuickNode, Infura, Alchemy, Ankr)
 - **Latency testing** - Measures response time for `eth_getLogs` queries
 - **Max log range detection** - Finds the largest block range each provider supports for `eth_getLogs` by testing progressively larger ranges
 - **Persistent results** - Benchmark data saved to localStorage across sessions

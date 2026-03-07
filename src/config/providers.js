@@ -2,8 +2,34 @@
 // - requiresKey: true means the URL contains {API_KEY} placeholder
 // - keyName: which key from the apiKeys store to use
 // - knownMaxRange: pre-tested eth_getLogs block range limit (null = unknown)
+// - quicknodeSubdomain: for QuickNode providers, the subdomain inserted into the URL
 //
 // Tested 2026-02-02. Dead/broken providers have been removed.
+
+// QuickNode subdomain mapping per chain ID
+export const QUICKNODE_SUBDOMAINS = {
+  ethereum: null, // Ethereum uses no subdomain
+  arbitrum: 'arbitrum-mainnet',
+  polygon: 'matic',
+  optimism: 'optimism',
+  avalanche: 'avalanche-mainnet',
+  base: 'base-mainnet',
+  bnb: 'bsc',
+  gnosis: 'xdai',
+  scroll: 'scroll-mainnet',
+  zksync: 'zksync-mainnet',
+  linea: 'linea-mainnet',
+  fantom: 'fantom',
+  mantle: 'mantle-mainnet',
+  celo: 'celo-mainnet',
+  zkevm: 'zkevm-mainnet',
+  megaeth: 'megaeth-mainnet',
+  monad: 'monad-mainnet',
+};
+
+function qn(chainId) {
+  return { name: 'QuickNode', url: '', requiresKey: true, keyName: 'quicknode', quicknodeChain: chainId, knownMaxRange: null };
+}
 
 const PROVIDERS = {
   ethereum: [
@@ -20,6 +46,7 @@ const PROVIDERS = {
     { name: 'Ankr', url: 'https://rpc.ankr.com/eth/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: 50000 },
     { name: 'Alchemy', url: 'https://eth-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
+    qn('ethereum'),
   ],
   arbitrum: [
     { name: 'PublicNode', url: 'https://arbitrum-one-rpc.publicnode.com', knownMaxRange: 49999 },
@@ -31,6 +58,7 @@ const PROVIDERS = {
     { name: 'Ankr', url: 'https://rpc.ankr.com/arbitrum/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://arbitrum-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: 50000 },
     { name: 'Alchemy', url: 'https://arb-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
+    qn('arbitrum'),
   ],
   polygon: [
     { name: 'PublicNode', url: 'https://polygon-bor-rpc.publicnode.com', knownMaxRange: 50000 },
@@ -42,6 +70,7 @@ const PROVIDERS = {
     { name: 'Ankr', url: 'https://rpc.ankr.com/polygon/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://polygon-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: 50000 },
     { name: 'Alchemy', url: 'https://polygon-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
+    qn('polygon'),
   ],
   optimism: [
     { name: 'PublicNode', url: 'https://optimism-rpc.publicnode.com', knownMaxRange: 5000 },
@@ -54,6 +83,7 @@ const PROVIDERS = {
     { name: 'Ankr', url: 'https://rpc.ankr.com/optimism/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://optimism-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: 50000 },
     { name: 'Alchemy', url: 'https://opt-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
+    qn('optimism'),
   ],
   avalanche: [
     { name: 'PublicNode', url: 'https://avalanche-c-chain-rpc.publicnode.com', knownMaxRange: 2048 },
@@ -64,6 +94,7 @@ const PROVIDERS = {
     { name: 'Ankr', url: 'https://rpc.ankr.com/avalanche/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://avalanche-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: 50000 },
     { name: 'Alchemy', url: 'https://avax-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
+    qn('avalanche'),
   ],
   base: [
     { name: 'PublicNode', url: 'https://base-rpc.publicnode.com', knownMaxRange: 5000 },
@@ -76,6 +107,7 @@ const PROVIDERS = {
     { name: 'Ankr', url: 'https://rpc.ankr.com/base/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://base-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: 50000 },
     { name: 'Alchemy', url: 'https://base-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
+    qn('base'),
   ],
   bnb: [
     { name: 'PublicNode', url: 'https://bsc-rpc.publicnode.com', knownMaxRange: 5000 },
@@ -88,6 +120,7 @@ const PROVIDERS = {
     { name: 'Ankr', url: 'https://rpc.ankr.com/bsc/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://bsc-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: 50000 },
     { name: 'Alchemy', url: 'https://bnb-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
+    qn('bnb'),
   ],
   gnosis: [
     { name: 'PublicNode', url: 'https://gnosis-rpc.publicnode.com', knownMaxRange: 50000 },
@@ -96,6 +129,7 @@ const PROVIDERS = {
     { name: 'Nodies', url: 'https://gnosis-pokt.nodies.app', knownMaxRange: 499 },
     { name: 'Official', url: 'https://rpc.gnosischain.com', knownMaxRange: 600000 },
     { name: 'Ankr', url: 'https://rpc.ankr.com/gnosis/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
+    qn('gnosis'),
   ],
   scroll: [
     { name: 'PublicNode', url: 'https://scroll-rpc.publicnode.com', knownMaxRange: 50000 },
@@ -104,6 +138,7 @@ const PROVIDERS = {
     { name: 'Ankr', url: 'https://rpc.ankr.com/scroll/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://scroll-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: null },
     { name: 'Alchemy', url: 'https://scroll-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
+    qn('scroll'),
   ],
   zksync: [
     { name: 'dRPC', url: 'https://zksync.drpc.org', knownMaxRange: 10000 },
@@ -111,6 +146,7 @@ const PROVIDERS = {
     { name: 'Ankr', url: 'https://rpc.ankr.com/zksync_era/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://zksync-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: null },
     { name: 'Alchemy', url: 'https://zksync-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
+    qn('zksync'),
   ],
   linea: [
     { name: 'PublicNode', url: 'https://linea-rpc.publicnode.com', knownMaxRange: 50000 },
@@ -119,6 +155,7 @@ const PROVIDERS = {
     { name: 'Ankr', url: 'https://rpc.ankr.com/linea/{API_KEY}', requiresKey: true, keyName: 'ankr', knownMaxRange: null },
     { name: 'Infura', url: 'https://linea-mainnet.infura.io/v3/{API_KEY}', requiresKey: true, keyName: 'infura', knownMaxRange: null },
     { name: 'Alchemy', url: 'https://linea-mainnet.g.alchemy.com/v2/{API_KEY}', requiresKey: true, keyName: 'alchemy', knownMaxRange: 10 },
+    qn('linea'),
   ],
   metis: [
     { name: 'PublicNode', url: 'https://metis-rpc.publicnode.com', knownMaxRange: 50000 },
@@ -129,11 +166,13 @@ const PROVIDERS = {
   ],
   fantom: [
     { name: 'Official', url: 'https://rpcapi.fantom.network', knownMaxRange: 50000 },
+    qn('fantom'),
   ],
   mantle: [
     { name: 'PublicNode', url: 'https://mantle-rpc.publicnode.com', knownMaxRange: 50000 },
     { name: 'dRPC', url: 'https://mantle.drpc.org', knownMaxRange: 10000 },
     { name: 'Official', url: 'https://rpc.mantle.xyz', knownMaxRange: 10000 },
+    qn('mantle'),
   ],
   blast: [
     { name: 'dRPC', url: 'https://blast.drpc.org', knownMaxRange: 10000 },
@@ -142,15 +181,31 @@ const PROVIDERS = {
   zkevm: [
     { name: 'dRPC', url: 'https://polygon-zkevm.drpc.org', knownMaxRange: 10000 },
     { name: 'Official', url: 'https://zkevm-rpc.com', knownMaxRange: 10000 },
+    qn('zkevm'),
   ],
   celo: [
     { name: 'PublicNode', url: 'https://celo-rpc.publicnode.com', knownMaxRange: 10000 },
     { name: 'Official', url: 'https://forno.celo.org', knownMaxRange: 100 },
+    qn('celo'),
+  ],
+  megaeth: [
+    { name: 'Official', url: 'https://mainnet.megaeth.com/rpc', knownMaxRange: null },
+    { name: 'dRPC', url: 'https://megaeth.drpc.org', knownMaxRange: null },
+    { name: 'GlobalStake', url: 'https://rpc-megaeth-mainnet.globalstake.io', knownMaxRange: null },
+    qn('megaeth'),
+  ],
+  monad: [
+    { name: 'Official', url: 'https://rpc.monad.xyz', knownMaxRange: null },
+    { name: 'dRPC', url: 'https://monad-mainnet.drpc.org', knownMaxRange: null },
+    { name: 'OnFinality', url: 'https://monad-mainnet.api.onfinality.io/public', knownMaxRange: null },
+    { name: 'Sentio', url: 'https://rpc.sentio.xyz/monad-mainnet', knownMaxRange: null },
+    qn('monad'),
   ],
 };
 
 // All unique key names used by providers that require API keys
 export const API_KEY_PROVIDERS = [
+  { keyName: 'quicknode', label: 'QuickNode', placeholder: 'Your QuickNode Ethereum endpoint URL' },
   { keyName: 'infura', label: 'Infura', placeholder: 'Your Infura Project ID' },
   { keyName: 'alchemy', label: 'Alchemy', placeholder: 'Your Alchemy API Key' },
   { keyName: 'ankr', label: 'Ankr', placeholder: 'Your Ankr API Key' },

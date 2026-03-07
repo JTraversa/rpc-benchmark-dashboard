@@ -1,4 +1,5 @@
 import { TRANSFER_TOPIC } from '../config/chains';
+import { QUICKNODE_SUBDOMAINS } from '../config/providers';
 
 const RANGE_STEPS = [100, 500, 1000, 2000, 3500, 5000, 10000, 20000, 50000];
 
@@ -117,6 +118,22 @@ function classifyError(errorMsg) {
  */
 export function resolveUrl(provider, apiKeys) {
   if (!provider.requiresKey) return provider.url;
+
+  // QuickNode: parse user's Ethereum endpoint URL and construct per-chain URL
+  if (provider.keyName === 'quicknode') {
+    const qnUrl = apiKeys.quicknode;
+    if (!qnUrl) return null;
+    const match = qnUrl.replace(/\/+$/, '').match(/^https?:\/\/([^.]+)\.(?:([^.]+)\.)?quiknode\.pro\/(.+)$/);
+    if (!match) return null;
+    const [, name, , token] = match;
+    const subdomain = QUICKNODE_SUBDOMAINS[provider.quicknodeChain];
+    if (subdomain === undefined) return null; // chain not supported
+    if (subdomain === null) return `https://${name}.quiknode.pro/${token}`;
+    const base = `https://${name}.${subdomain}.quiknode.pro/${token}`;
+    if (provider.quicknodeChain === 'avalanche') return base + '/ext/bc/C/rpc';
+    return base;
+  }
+
   const key = apiKeys[provider.keyName];
   if (!key) return null;
   return provider.url.replace('{API_KEY}', key);
