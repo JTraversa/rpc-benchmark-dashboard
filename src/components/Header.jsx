@@ -12,6 +12,7 @@ const menuLinks = [
 const toolLinks = [
   { label: 'Tools', href: 'https://tools.traversa.dev' },
   { label: 'Aave Liquidation Search', href: 'https://tools.traversa.dev/aave', indent: true },
+  { label: 'Epoch & Block Converter', href: 'https://tools.traversa.dev/epoch', indent: true },
   { label: 'License Generator', href: 'https://tools.traversa.dev/license', indent: true },
   { label: 'RPC Benchmarking', href: '/', indent: true },
 ];
