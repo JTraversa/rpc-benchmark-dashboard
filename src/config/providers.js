@@ -201,6 +201,23 @@ const PROVIDERS = {
     { name: 'Sentio', url: 'https://rpc.sentio.xyz/monad-mainnet', knownMaxRange: null },
     qn('monad'),
   ],
+  tempo: [
+    { name: 'Official', url: 'https://rpc.tempo.xyz', knownMaxRange: null },
+    { name: '1RPC', url: 'https://1rpc.io/tempo', knownMaxRange: null },
+  ],
+  stable: [
+    { name: 'Official', url: 'https://rpc.stable.xyz', knownMaxRange: null },
+  ],
+  plasma: [
+    { name: 'Official', url: 'https://rpc.plasma.to', knownMaxRange: null },
+    { name: 'dRPC', url: 'https://plasma.drpc.org', knownMaxRange: null },
+    { name: 'OnFinality', url: 'https://plasma.api.onfinality.io/public', knownMaxRange: null },
+  ],
+  katana: [
+    { name: 'Official', url: 'https://rpc.katana.network', knownMaxRange: null },
+    { name: 'dRPC', url: 'https://katana.drpc.org', knownMaxRange: null },
+    { name: 'Tenderly', url: 'https://katana.gateway.tenderly.co', knownMaxRange: null },
+  ],
 };
 
 // All unique key names used by providers that require API keys

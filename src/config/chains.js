@@ -135,4 +135,32 @@ export const CHAINS = [
     testContract: '0x754704Bc059F8C67012fEd69BC8A327a5aafb603', // USDC
     avgBlockTime: 1,
   },
+  {
+    id: 'tempo',
+    name: 'Tempo',
+    chainId: 4217,
+    testContract: '0x20c000000000000000000000b9537d11c60e8b50', // USDC.e
+    avgBlockTime: 0.5,
+  },
+  {
+    id: 'stable',
+    name: 'Stable',
+    chainId: 988,
+    testContract: '0x4cD00E387622C35bDDB9b4c962C136462338BC31', // gUSDT
+    avgBlockTime: 1,
+  },
+  {
+    id: 'plasma',
+    name: 'Plasma',
+    chainId: 9745,
+    testContract: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', // USDC
+    avgBlockTime: 1,
+  },
+  {
+    id: 'katana',
+    name: 'Katana',
+    chainId: 747474,
+    testContract: '0x4200000000000000000000000000000000000006', // WETH
+    avgBlockTime: 2,
+  },
 ];
