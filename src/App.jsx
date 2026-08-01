@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Header from './components/Header';
 import Socialicons from './components/Socialicons';
+import RepoLink from './components/RepoLink';
 import ChainSelector from './components/ChainSelector';
 import ApiKeySettings from './components/ApiKeySettings';
 import BenchmarkRunner from './components/BenchmarkRunner';
@@ -28,6 +29,7 @@ function App() {
           <p>
             Compare RPC provider latency and maximum log query range across EVM chains. Select a chain, configure any optional API keys, and run benchmarks. All tests run client-side in your browser.
           </p>
+          <RepoLink />
         </div>
         <ChainSelector selected={selectedChain} onSelect={setSelectedChain} />
         <ApiKeySettings apiKeys={apiKeys} onSave={handleSaveKeys} />
